@@ -1,0 +1,38 @@
+import javax.swing.JOptionPane;
+public class Procedure01 {
+   static Double SB,SL;
+	 public static void main (String args[]){
+	 	//Double VHR,HTR;
+	 	
+	    SB = Double.parseDouble(JOptionPane.showInputDialog("Digite o SALRIO BRUTO"));
+	    PROC_SALARIO();
+	    JOptionPane.showMessageDialog(null, "\n Salario Liquido = " + SL);
+	    
+	  } //fim da classe main()
+	  
+	// Modulo procedimento Calcula desconto - sem passagem de parmetro
+	  static void PROC_SALARIO(){
+	    Double DESC; 
+	  	if (SB < 500)
+	  	   {
+	  		 DESC = 0.0;
+	  	   }
+	  	else if (SB >= 500 && SB < 800)
+	  	        {
+	  		      DESC = 0.05;
+	  	        }
+	  	else if (SB >= 800 && SB < 1200)
+	  	        {
+	  		       DESC = 0.10;
+	  	        }
+	  	  	else 
+	  	  	    {
+	  		     DESC = 0.15;
+	  	        }
+	  	
+	  	SL = (SB - (SB * DESC));
+	  	
+	     
+	  } //fim do mdulo 
+
+} //fim da classe 

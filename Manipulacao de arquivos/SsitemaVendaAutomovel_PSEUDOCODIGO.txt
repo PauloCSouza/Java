@@ -1,0 +1,99 @@
+ALGORITMO SistemaVendaAutomovel
+inicio_algoritmo
+definir
+  tipo RegistroAutomovel = registro
+       vcod    :numerico_inteiro;
+       vnome :alfanumerico;
+       vtipo   :numerico_inteiro;
+       vvalor  :numerico_decimal;
+  fimregistro;
+  
+  RegistroAutomovel[] automovel (RegistroAutomovel[3])
+
+ Declarar
+  opc,solicitaCodigo,retornoCodigo : numerico_inteiro;
+  solicitaPreco                                    : numerico_decimal;
+ 
+inicio
+    faça
+       ler opc;
+        Escolha (opc)
+                caso 1: 
+                        automovel = GravaAutomovel(automovel);
+            
+              caso 2: 
+                        ler solicitaPreco;
+                         PesquisaPreco(automovel,solicitaPreco);
+
+                caso 3:
+                         ler solicitaCodigo;
+                         se ((Pesquisacodigo(automovel,solicitaCodigo) == 1) então
+                              mostra ("Codigo encontrado");
+                         senão
+                              mostra ("Codigo não encontrado");
+                         fim_se;
+     
+              caso 9: 
+                         mostra ("Fim do Processamento");
+                 
+                caso contrario : 
+                         mostra ("Opção Inválida"); 
+
+    enquanto (opc != 9);
+fim.
+
+Algoritmo  GravaAutomovel(RegistroAutomovel[] automovel) : RegistroAutomovel[]
+declarar                     
+  i:numerico_inteiro;
+  fileName:caracteres;
+inicio
+  fileName = "ArquivoAutomovel.txt";
+  abrir (ArquivoAutomovel);
+  gravaçao(ArquivoAutomovel,automovel[]);
+        
+  para (i=0;i<3;i++) faça
+        escrever ("Entre com o codigo do veiculo"); 
+        ler (automovel[i].vcod);
+        escrever ("Entre com o nome do veiculo"); 
+        ler (automovel[i].vnome);
+        escrever ("Entre com o tipo do veiculo"); 
+        ler (automovel[i].vtipo);
+        escrever ("Entre com o valor do veiculo"); 
+        ler (automovel[i].vvalor);
+        gravar (ArquivoAutomovel,automvel[i]); 
+     fimpara;
+     fechar (ArquivoAutomvel);
+fim_segue;
+
+
+Algoritmo PesquisaPreco(RegistroAutomovel[] automovel, inteiro_decimal preco)
+declarar                     
+  i:numerico_inteiro;
+ Inicio
+  para (i=0;i<3;i++) faça
+       se (automovel[i].vvalor <= preco) então
+           escrever (automovel[i].vcod,
+                     automovel[i].vnome
+                     automovel[i].vtipo
+                     automovel[i].vvalor);
+       fim_se;
+   fim_para;
+fim_segue.
+
+
+
+Algoritmo PesquisaCodigo(RegistroAutomovel[] automovel, numerico_inteiro codigo) : numerico_inteiro
+declarar                     
+  flag,i:numerico_inteiro;
+inicio
+  para (i=0;i<3;i++) faça
+       se (codigo == automovel[i].vcod) então
+           flag = 1;
+       senão
+           flag = 2;
+       fim_se;
+   fim_para;
+   retorna flag;
+fim_segue.    
+          
+         

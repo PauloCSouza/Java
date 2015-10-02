@@ -1,0 +1,37 @@
+
+
+
+
+ALGORITMO ExemploAluno
+inicio_algoritmo
+definir
+  tipo RegistroAluno = registro
+       pnome:alfanumerico;
+       unome:alfanumerico;
+       pontos:numerico_inteiro;
+  fimregistro;
+  
+  RegistroAluno[] entrada (RegistroAluno[5])
+
+ Declarar
+  i:numerico_inteiro;
+ inicio
+     abrir (ArqAluno);
+     para (i=0;i<4;i++) faça
+        leitura(ArqAluno,entrada[i]);
+        escrever ("Digite o Nome"); 
+        ler (entrada[i].pnome);
+        escrever ("Digite o Sobrenome"); 
+        ler (entrada[i].unome);
+        escrever ("Digite os Pontos"); 
+        ler (entrada[i].pontos);
+        gravar (ArqAluno,entrada[i]); 
+     fimpara;
+     fechar (ArqAluno);
+
+
+
+
+     
+
+       
